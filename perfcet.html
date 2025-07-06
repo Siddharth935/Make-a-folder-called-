@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To My Love Nikita</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .marathi-letter {
+      margin-top: 40px;
+      background-color: #fff0f6;
+      padding: 25px;
+      border-radius: 15px;
+      font-size: 1.1rem;
+      color: #5a2a4f;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    #playMusic {
+      margin-top: 30px;
+      padding: 12px 24px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .hearts span {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 6s infinite;
+      opacity: 0.7;
+    }
+
+    .hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .hearts span:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .hearts span:nth-child(3) { left: 50%; animation-delay: 4s; }
+    .hearts span:nth-child(4) { left: 70%; animation-delay: 1s; }
+    .hearts span:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+    @keyframes float {
+      0% { bottom: -10%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 110%; opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   
+
+    <div class="marathi-letter">
+      Priy Nikita,
+
+      Saglyat pahile, tujhi khup khup aathvan yete ahe.
+
+      Ya lamb antarane apan physically jawal nahi, pan majhya manat, hrudyat aani pratyek shwasat tu nehmich aahes. Pratyek sakal tujhya aathvani ne suru hote aani pratyek ratri tujhya swapnat sampte.
+
+      Tujha hasna, tujhi bolnyachi paddhat, tujhi kalaji ghenyachi savay — sagla kahi itka khas ahe ki shabda aapure watatat te sangayla. Kadhi kadhi watta, he antar apan mitvu shakto ka… pan mag lagach aathavta ki aapla prem itka ghatta ahe ki he antarsudha harvun jatat.
+
+      Nikita, tuzyasobat ghalavlele kshan majhya aayushyatil sarvat sundar kshan ahet. Aani mi darroj tya aathvanni la jeev lavto. Ek divas asa yenar ki apan parat ekatra basun, ekmekankade baghun, khup vel bolu… kuthlich ghai nasel, kuthlach antar nasel.
+
+      Tujhyavar majha khup khup prem ahe. Tu majha bal aahes, majha atmvishwas aahes. Aani he prem kadhich kami honar nahi, ulat darroj vadt jatay.
+
+      Lavkarach bhetu — Tujhach,
+
+      siddhu ❤️
+    </div>
+
+    <button id="playMusic">🎵 Tap to Play Our Song</button>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="perfect.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating hearts -->
+  <div class="hearts">
+    <span>💗</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>💕</span>
+    <span>❤️</span>
+  </div>
+
+  <script>
+    const btn = document.getElementById("playMusic");
+    const music = document.getElementById("bgMusic");
+
+    btn.onclick = () => {
+      music.play();
+      btn.style.display = "none";
+    };
+
+    window.addEventListener("load", () => {
+      const playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          btn.style.display = "inline-block";
+        });
+      }
+    });
+  </script>
+</body>
+</html>
